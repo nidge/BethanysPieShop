@@ -27,13 +27,18 @@ namespace BethanysPieShop.Models
         {
             get
             {
-                return _appDbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
+            return _appDbContext.Pies.Include(c => c.Category).Where(p => p.IsPieOfTheWeek);
             }
         }
-
+  
         public Pie GetPieById(int pieId)
         {
             return _appDbContext.Pies.FirstOrDefault(p => p.PieId == pieId);
+        }
+
+        public Pie GetPieBySearchTerm(string pieName)
+        {
+            return _appDbContext.Pies.FirstOrDefault(p => p.Name.ToLower().Contains(pieName.ToLower()));
         }
     }
 }

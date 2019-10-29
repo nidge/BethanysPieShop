@@ -24,5 +24,10 @@ namespace BethanysPieShop.Models
         {
             return AllPies.FirstOrDefault(p => p.PieId == pieId);
         }
+
+        public Pie GetPieBySearchTerm(string pieName)
+        {
+            return AllPies.FirstOrDefault(p => p.Name.ToLower().Contains(pieName.ToLower()));
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace BethanysPieShop.Controllers
         public IActionResult Details(int id)
         {
             var pie = _pieRepository.GetPieById(id);
+            //var pie = _pieRepository.GetPieBySearchTerm("Cheese cake");
             if (pie == null)
                 return NotFound();
 
